@@ -13,13 +13,13 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
  * ! images, title, price, buttons, description
  */
 
-//const itemContainer = document.getElementById("item-list");
-const searchInput = document.getElementById("search-box");
+// //const itemContainer = document.getElementById("item-list");
+// const searchInput = document.getElementById("search-box");
 
-// Trigger function every time search text is changed
-searchInput.onkeyup = (event) => {
-  generateShop(shopItemsData, event.target.value);
-};
+// // Trigger function every time search text is changed
+// searchInput.onkeyup = (event) => {
+//   generateShop(shopItemsData, event.target.value);
+// };
 
 let generateShop = (shopItemsData, query = "") => {
   return (shop.innerHTML = shopItemsData
@@ -37,8 +37,9 @@ let generateShop = (shopItemsData, query = "") => {
               <h2>$ ${price} </h2>
               <div class="buttons">
                 <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                <div id=${id} class="quantity">${search.item === undefined ? 0 : search.item
-          }</div>
+                <div id=${id} class="quantity">${
+          search.item === undefined ? 0 : search.item
+        }</div>
                 <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
               </div>
             </div>
@@ -50,7 +51,30 @@ let generateShop = (shopItemsData, query = "") => {
     .join(""));
 };
 
-generateShop(shopItemsData, query = "");
+// Function to filter products based on search term, selected categories, and price range
+const filterProducts = () => {
+  const searchTerm = document.getElementById("search-box").value.toLowerCase();
+  const selectedCategories = Array.from(
+    document.querySelectorAll('.filter-category input[type="checkbox"]:checked')
+  ).map((checkbox) => checkbox.value);
+  const priceRange = document.getElementById("priceRange").value;
+
+  const filteredProducts = shopItemsData.filter((product) => {
+    const matchesSearchTerm =
+      product.name.toLowerCase().includes(searchTerm) ||
+      product.desc.toLowerCase().includes(searchTerm);
+    const matchesCategories =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.category);
+    const isInPriceRange = product.price <= priceRange;
+    return matchesSearchTerm && matchesCategories && isInPriceRange;
+  });
+
+  generateShop(filteredProducts);
+};
+
+// Initial call to generate shop with all products
+generateShop(shopItemsData);
 
 /**
  * ! used to increase the selected product item quantity by 1
@@ -114,5 +138,3 @@ let calculation = () => {
 };
 
 calculation();
-
-

@@ -204,3 +204,25 @@ a {
   justify-content: center;
   margin-left: 10px;
 }
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  min-width: 20%;
+  margin-top: 4em;
+  padding: 0em 2em;
+}
+
+.filter-category {
+  margin-top: 2em;
+}
+
+.filter-price {
+  margin-top: 1em;
+}
