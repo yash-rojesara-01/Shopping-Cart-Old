@@ -19,7 +19,7 @@
       </a>
       <div class="search-header">
         <div class="search-text">Search</div>
-        <input id="search-box" onchange="generateShop()" />
+        <input id="search-box" oninput="filterProducts()" />
         <ol id="item-list"></ol>
       </div>
       <a href="cart.html">
@@ -35,16 +35,33 @@
         <h3>Filter Options</h3>
         <div class="filter-category">
           <h4>Category</h4>
-          <!-- Checkbox inputs for categories -->
-          <label><input type="checkbox" value="Casual" /> Casual</label>
-          <label><input type="checkbox" value="Office" /> Office</label>
-          <!-- Add more categories as needed -->
+          <label
+            ><input
+              type="checkbox"
+              value="Casual"
+              onchange="filterProducts()"
+            />
+            Casual</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="Office"
+              onchange="filterProducts()"
+            />
+            Office</label
+          >
         </div>
         <div class="filter-price">
           <h4>Price Range</h4>
-          <!-- Price range slider -->
-          <input type="range" min="0" max="500" value="0" id="priceRange" />
-          <!-- <span id="priceRangeValue">$0</span> -->
+          <input
+            type="range"
+            min="0"
+            max="500"
+            value="500"
+            id="priceRange"
+            oninput="filterProducts()"
+          />
         </div>
       </div>
       <div class="shop" id="shop"></div>

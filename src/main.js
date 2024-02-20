@@ -13,13 +13,13 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
  * ! images, title, price, buttons, description
  */
 
-//const itemContainer = document.getElementById("item-list");
-const searchInput = document.getElementById("search-box");
+// //const itemContainer = document.getElementById("item-list");
+// const searchInput = document.getElementById("search-box");
 
-// Trigger function every time search text is changed
-searchInput.onkeyup = (event) => {
-  generateShop(shopItemsData, event.target.value);
-};
+// // Trigger function every time search text is changed
+// searchInput.onkeyup = (event) => {
+//   generateShop(shopItemsData, event.target.value);
+// };
 
 let generateShop = (shopItemsData, query = "") => {
   return (shop.innerHTML = shopItemsData
@@ -51,50 +51,30 @@ let generateShop = (shopItemsData, query = "") => {
     .join(""));
 };
 
-// Define variables for checkboxes and price range input
-const categoryCheckboxes = document.querySelectorAll(
-  '.filter-category input[type="checkbox"]'
-);
-const priceRangeInput = document.getElementById("priceRange");
-
-// Add event listeners to category checkboxes
-categoryCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    filterProducts();
-  });
-});
-
-// Add event listener to price range input
-priceRangeInput.addEventListener("input", () => {
-  filterProducts();
-});
-
-// Function to filter products based on selected category checkboxes and price range
+// Function to filter products based on search term, selected categories, and price range
 const filterProducts = () => {
-  debugger;
-  const selectedCategories = Array.from(categoryCheckboxes)
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.value);
+  const searchTerm = document.getElementById("search-box").value.toLowerCase();
+  const selectedCategories = Array.from(
+    document.querySelectorAll('.filter-category input[type="checkbox"]:checked')
+  ).map((checkbox) => checkbox.value);
+  const priceRange = document.getElementById("priceRange").value;
 
-  const minPrice = parseInt(priceRangeInput.min);
-  const maxPrice = parseInt(priceRangeInput.value);
-
-  // Filter products based on selected categories and price range
   const filteredProducts = shopItemsData.filter((product) => {
-    const isInSelectedCategories =
+    const matchesSearchTerm =
+      product.name.toLowerCase().includes(searchTerm) ||
+      product.desc.toLowerCase().includes(searchTerm);
+    const matchesCategories =
       selectedCategories.length === 0 ||
       selectedCategories.includes(product.category);
-    const isInPriceRange =
-      product.price >= minPrice && product.price <= maxPrice;
-    return isInSelectedCategories && isInPriceRange;
+    const isInPriceRange = product.price <= priceRange;
+    return matchesSearchTerm && matchesCategories && isInPriceRange;
   });
 
-  // Generate shop with filtered products
   generateShop(filteredProducts);
 };
 
 // Initial call to generate shop with all products
-generateShop(shopItemsData, (query = ""));
+generateShop(shopItemsData);
 
 /**
  * ! used to increase the selected product item quantity by 1
