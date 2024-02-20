@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flamingo-Cart</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flamingo-Cart</title>
-  <link rel="stylesheet" href="src/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-</head>
-
-<body>
-  <div class="navbar">
-    <a href="index.html">
-      <h2>Flamingo-Cart</h2>
-    </a>
-    <div class="search-header">
-      <div class="search-text">Search</div>
-      <input id="search-box" onchange="generateShop()" />
-      <ol id="item-list"></ol>
-    </div>
-    <a href="cart.html">
-      <div class="cart">
-        <i class="bi bi-cart2"></i>
-        <div id="cartAmount" class="cartAmount">0</div>
+  <body>
+    <div class="navbar">
+      <a href="index.html">
+        <h2>Flamingo-Cart</h2>
+      </a>
+      <div class="search-header">
+        <div class="search-text">Search</div>
+        <input id="search-box" onchange="generateShop()" />
+        <ol id="item-list"></ol>
       </div>
-    </a>
+      <a href="cart.html">
+        <div class="cart">
+          <i class="bi bi-cart2"></i>
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
+      </a>
+    </div>
 
-  </div>
-  <div class="shop" id="shop">
-  </div>
-
-</body>
-<script src="src/Data.js"></script>
-<script src="src/main.js"></script>
-
+    <div class="main-container">
+      <div class="sidebar">
+        <h3>Filter Options</h3>
+        <div class="filter-category">
+          <h4>Category</h4>
+          <!-- Checkbox inputs for categories -->
+          <label><input type="checkbox" value="Casual" /> Casual</label>
+          <label><input type="checkbox" value="Office" /> Office</label>
+          <!-- Add more categories as needed -->
+        </div>
+        <div class="filter-price">
+          <h4>Price Range</h4>
+          <!-- Price range slider -->
+          <input type="range" min="0" max="500" value="0" id="priceRange" />
+          <!-- <span id="priceRangeValue">$0</span> -->
+        </div>
+      </div>
+      <div class="shop" id="shop"></div>
+    </div>
+  </body>
+  <script src="src/Data.js"></script>
+  <script src="src/main.js"></script>
 </html>

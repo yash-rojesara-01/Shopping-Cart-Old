@@ -37,8 +37,9 @@ let generateShop = (shopItemsData, query = "") => {
               <h2>$ ${price} </h2>
               <div class="buttons">
                 <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                <div id=${id} class="quantity">${search.item === undefined ? 0 : search.item
-          }</div>
+                <div id=${id} class="quantity">${
+          search.item === undefined ? 0 : search.item
+        }</div>
                 <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
               </div>
             </div>
@@ -50,7 +51,50 @@ let generateShop = (shopItemsData, query = "") => {
     .join(""));
 };
 
-generateShop(shopItemsData, query = "");
+// Define variables for checkboxes and price range input
+const categoryCheckboxes = document.querySelectorAll(
+  '.filter-category input[type="checkbox"]'
+);
+const priceRangeInput = document.getElementById("priceRange");
+
+// Add event listeners to category checkboxes
+categoryCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    filterProducts();
+  });
+});
+
+// Add event listener to price range input
+priceRangeInput.addEventListener("input", () => {
+  filterProducts();
+});
+
+// Function to filter products based on selected category checkboxes and price range
+const filterProducts = () => {
+  debugger;
+  const selectedCategories = Array.from(categoryCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+
+  const minPrice = parseInt(priceRangeInput.min);
+  const maxPrice = parseInt(priceRangeInput.value);
+
+  // Filter products based on selected categories and price range
+  const filteredProducts = shopItemsData.filter((product) => {
+    const isInSelectedCategories =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.category);
+    const isInPriceRange =
+      product.price >= minPrice && product.price <= maxPrice;
+    return isInSelectedCategories && isInPriceRange;
+  });
+
+  // Generate shop with filtered products
+  generateShop(filteredProducts);
+};
+
+// Initial call to generate shop with all products
+generateShop(shopItemsData, (query = ""));
 
 /**
  * ! used to increase the selected product item quantity by 1
@@ -114,5 +158,3 @@ let calculation = () => {
 };
 
 calculation();
-
-
