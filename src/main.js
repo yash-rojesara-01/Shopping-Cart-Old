@@ -138,3 +138,52 @@ let calculation = () => {
 };
 
 calculation();
+
+// Initialize variables
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slider-item img");
+const totalSlides = slides.length;
+let autoScrollInterval;
+
+// Function to show current slide
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? "block" : "none";
+  });
+}
+
+// Function to show next slide
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Function to show previous slide
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Attach event listeners to next and previous buttons
+document.getElementById("NextBtn").addEventListener("click", nextSlide);
+document.getElementById("PrevBtn").addEventListener("click", prevSlide);
+
+// Auto-scroll every 3 seconds
+function startAutoScroll() {
+  autoScrollInterval = setInterval(nextSlide, 3000);
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+
+// Start auto-scrolling
+startAutoScroll();
+
+// Pause auto-scrolling on hover
+document
+  .querySelector(".slider-container")
+  .addEventListener("mouseenter", stopAutoScroll);
+document
+  .querySelector(".slider-container")
+  .addEventListener("mouseleave", startAutoScroll);
