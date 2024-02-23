@@ -205,11 +205,13 @@ let errorMessage = document.getElementById("error-message");
 function showAlert(message, variant) {
   if (variant === "success") {
     successMessage.innerText = "\u2714 " + message; // Unicode checkmark character
+    customAlert.classList.remove("alert-error");
     customAlert.classList.add("alert-success");
     successMessage.style.display = "block";
     errorMessage.style.display = "none";
   } else if (variant === "error") {
     errorMessage.innerText = "\u26A0 " + message; // Unicode warning/exclamation character
+    customAlert.classList.remove("alert-success");
     customAlert.classList.add("alert-error");
     successMessage.style.display = "none";
     errorMessage.style.display = "block";
