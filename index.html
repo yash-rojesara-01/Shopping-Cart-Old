@@ -91,14 +91,18 @@
         </div>
         <div class="filter-price">
           <h4>Price Range</h4>
-          <input
-            type="range"
-            min="0"
-            max="500"
-            value="500"
-            id="priceRange"
-            oninput="filterProducts()"
-          />
+          <div class="range-container">
+            <span class="range-value">0</span>
+            <input
+              type="range"
+              min="0"
+              max="500"
+              value="500"
+              id="priceRange"
+              oninput="updateRangeValue(this.value)"
+            />
+            <span id="rangeValue">500</span>
+          </div>
         </div>
       </div>
       <div class="shop" id="shop"></div>

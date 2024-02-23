@@ -234,3 +234,7 @@ const alertIcons = {
   success: '<i class="fas fa-check-circle"></i>',
   error: '<i class="fas fa-exclamation-circle"></i>',
 };
+
+function updateRangeValue(value) {
+  document.getElementById("rangeValue").textContent = value;
+}
