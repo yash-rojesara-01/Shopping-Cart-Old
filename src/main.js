@@ -96,7 +96,7 @@ let increment = (id) => {
   console.log(basket);
   update(selectedItem.id);
   localStorage.setItem("data", JSON.stringify(basket));
-  showAlert("Item added to your cart successfully");
+  showAlert("Item added to your cart successfully", "success");
 };
 
 /**
@@ -117,7 +117,7 @@ let decrement = (id) => {
   basket = basket.filter((x) => x.item !== 0);
   console.log(basket);
   localStorage.setItem("data", JSON.stringify(basket));
-  showAlert("Item removed from your cart!");
+  showAlert("Item removed from your cart!", "error");
 };
 
 /**
@@ -141,7 +141,6 @@ let calculation = () => {
 
 calculation();
 
-// Initialize variables
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slider-item img");
 const totalSlides = slides.length;
@@ -149,8 +148,17 @@ let autoScrollInterval;
 
 // Function to show current slide
 function showSlide(index) {
+  const slideWidth = slides[0].clientWidth; // Get the width of a single slide
+  const offset = -index * slideWidth; // Calculate the offset based on current slide index
   slides.forEach((slide, i) => {
-    slide.style.display = i === index ? "block" : "none";
+    slide.style.transition =
+      "transform 0.5s ease-in-out, opacity 0.5s ease-in-out"; // Apply transition to each slide
+    slide.style.transform = `translateX(${offset}px)`; // Apply the transform to each slide
+    if (i === index) {
+      slide.style.opacity = "1"; // Set opacity to 1 for the current slide
+    } else {
+      slide.style.opacity = "0"; // Set opacity to 0 for other slides
+    }
   });
 }
 
@@ -191,18 +199,36 @@ document
   .addEventListener("mouseleave", startAutoScroll);
 
 let customAlert = document.getElementById("custom-alert");
-let alertMessage = document.getElementById("alert-message");
-let closeBtn = document.getElementById("close-alert");
+let successMessage = document.getElementById("success-message");
+let errorMessage = document.getElementById("error-message");
 
 function showAlert(message, variant) {
-  alertMessage.innerText = message;
-  customAlert.classList.add(variant);
+  if (variant === "success") {
+    successMessage.innerText = "\u2714 " + message; // Unicode checkmark character
+    customAlert.classList.add("alert-success");
+    successMessage.style.display = "block";
+    errorMessage.style.display = "none";
+  } else if (variant === "error") {
+    errorMessage.innerText = "\u26A0 " + message; // Unicode warning/exclamation character
+    customAlert.classList.add("alert-error");
+    successMessage.style.display = "none";
+    errorMessage.style.display = "block";
+  }
+
   customAlert.classList.add("show");
   setTimeout(hideAlert, 2000); // Hide alert after 2000 milliseconds (2 seconds)
 }
 
 function hideAlert() {
   customAlert.classList.remove("show");
+  successMessage.innerText = "";
+  errorMessage.innerText = "";
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
 }
 
-closeBtn.addEventListener("click", hideAlert);
+// Alert icons
+const alertIcons = {
+  success: '<i class="fas fa-check-circle"></i>',
+  error: '<i class="fas fa-exclamation-circle"></i>',
+};
