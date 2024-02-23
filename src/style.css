@@ -124,7 +124,7 @@ a {
 
 .text-center {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .HomeBtn,
@@ -358,4 +358,35 @@ img {
   border-radius: 50%;
   padding: 4px;
   font-size: 12px;
+}
+
+footer {
+  background-color: #333; /* Dark gray background color */
+  color: #fff; /* White text color */
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.grid-item {
+  width: 30%;
+}
+.contact-info {
+  margin-top: 20px;
+}
+.social-links {
+  margin-top: 20px;
+}
+.social-link {
+  margin-right: 10px;
 }

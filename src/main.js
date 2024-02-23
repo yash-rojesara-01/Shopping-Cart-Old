@@ -237,4 +237,5 @@ const alertIcons = {
 
 function updateRangeValue(value) {
   document.getElementById("rangeValue").textContent = value;
+  filterProducts();
 }
