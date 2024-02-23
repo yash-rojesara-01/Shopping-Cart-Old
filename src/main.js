@@ -96,6 +96,7 @@ let increment = (id) => {
   console.log(basket);
   update(selectedItem.id);
   localStorage.setItem("data", JSON.stringify(basket));
+  showAlert("Item added to your cart successfully");
 };
 
 /**
@@ -116,6 +117,7 @@ let decrement = (id) => {
   basket = basket.filter((x) => x.item !== 0);
   console.log(basket);
   localStorage.setItem("data", JSON.stringify(basket));
+  showAlert("Item removed from your cart!");
 };
 
 /**
@@ -138,3 +140,69 @@ let calculation = () => {
 };
 
 calculation();
+
+// Initialize variables
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slider-item img");
+const totalSlides = slides.length;
+let autoScrollInterval;
+
+// Function to show current slide
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? "block" : "none";
+  });
+}
+
+// Function to show next slide
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Function to show previous slide
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Attach event listeners to next and previous buttons
+document.getElementById("NextBtn").addEventListener("click", nextSlide);
+document.getElementById("PrevBtn").addEventListener("click", prevSlide);
+
+// Auto-scroll every 3 seconds
+function startAutoScroll() {
+  autoScrollInterval = setInterval(nextSlide, 3000);
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+
+// Start auto-scrolling
+startAutoScroll();
+
+// Pause auto-scrolling on hover
+document
+  .querySelector(".slider-container")
+  .addEventListener("mouseenter", stopAutoScroll);
+document
+  .querySelector(".slider-container")
+  .addEventListener("mouseleave", startAutoScroll);
+
+let customAlert = document.getElementById("custom-alert");
+let alertMessage = document.getElementById("alert-message");
+let closeBtn = document.getElementById("close-alert");
+
+function showAlert(message, variant) {
+  alertMessage.innerText = message;
+  customAlert.classList.add(variant);
+  customAlert.classList.add("show");
+  setTimeout(hideAlert, 2000); // Hide alert after 2000 milliseconds (2 seconds)
+}
+
+function hideAlert() {
+  customAlert.classList.remove("show");
+}
+
+closeBtn.addEventListener("click", hideAlert);

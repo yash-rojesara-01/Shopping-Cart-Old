@@ -1,3 +1,5 @@
+@import "./normalize.css";
+
 /**
 * ! Changing default styles of the browser
 **/
@@ -32,7 +34,6 @@ a {
   background-color: #212529;
   color: white;
   padding: 25px 60px;
-  margin-bottom: 30px;
 }
 
 .cart {
@@ -225,4 +226,87 @@ a {
 
 .filter-price {
   margin-top: 1em;
+}
+
+img {
+  width: 100%;
+}
+
+.slider-container {
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider-item {
+  width: 100%;
+  display: flex;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px; /* Adjust this margin as needed */
+}
+
+.slider-item {
+  display: flex;
+}
+
+.slider-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+#PrevBtn,
+#NextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; /* Adjust icon size as needed */
+  z-index: 1;
+  display: none;
+}
+
+#PrevBtn {
+  left: 0;
+}
+
+#NextBtn {
+  right: 0;
+}
+
+.alert {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.close-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.close-btn:hover {
+  background-color: #c82333;
+}
+
+.alert.show {
+  display: block;
 }

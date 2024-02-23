@@ -140,6 +140,7 @@ let removeItem = (id) => {
   generateCartItems();
   TotalAmount();
   localStorage.setItem("data", JSON.stringify(basket));
+  showAlert("Item removed from your cart!");
 };
 
 /**
@@ -178,3 +179,20 @@ let clearCart = () => {
   calculation();
   localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let customAlert = document.getElementById("custom-alert");
+let alertMessage = document.getElementById("alert-message");
+let closeBtn = document.getElementById("close-alert");
+
+function showAlert(message, variant) {
+  alertMessage.innerText = message;
+  customAlert.classList.add(variant);
+  customAlert.classList.add("show");
+  setTimeout(hideAlert, 2000); // Hide alert after 2000 milliseconds (2 seconds)
+}
+
+function hideAlert() {
+  customAlert.classList.remove("show");
+}
+
+closeBtn.addEventListener("click", hideAlert);
