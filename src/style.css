@@ -301,3 +301,61 @@ img {
 .alert.show {
   display: block;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Light gray background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.search-header {
+  position: relative;
+}
+
+.search-text {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #999999;
+}
+
+#search-box {
+  padding: 8px 30px;
+  border-radius: 20px;
+  border: 1px solid #dddddd;
+  font-size: 14px;
+}
+
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart i {
+  font-size: 24px;
+}
+
+.cartAmount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+}
