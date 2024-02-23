@@ -140,7 +140,7 @@ let removeItem = (id) => {
   generateCartItems();
   TotalAmount();
   localStorage.setItem("data", JSON.stringify(basket));
-  showAlert("Item removed from your cart!");
+  showAlert("Item removed from your cart!", "error");
 };
 
 /**
@@ -181,18 +181,36 @@ let clearCart = () => {
 };
 
 let customAlert = document.getElementById("custom-alert");
-let alertMessage = document.getElementById("alert-message");
-let closeBtn = document.getElementById("close-alert");
+let successMessage = document.getElementById("success-message");
+let errorMessage = document.getElementById("error-message");
 
 function showAlert(message, variant) {
-  alertMessage.innerText = message;
-  customAlert.classList.add(variant);
+  if (variant === "success") {
+    successMessage.innerText = "\u2714 " + message; // Unicode checkmark character
+    customAlert.classList.add("alert-success");
+    successMessage.style.display = "block";
+    errorMessage.style.display = "none";
+  } else if (variant === "error") {
+    errorMessage.innerText = "\u26A0 " + message; // Unicode warning/exclamation character
+    customAlert.classList.add("alert-error");
+    successMessage.style.display = "none";
+    errorMessage.style.display = "block";
+  }
+
   customAlert.classList.add("show");
   setTimeout(hideAlert, 2000); // Hide alert after 2000 milliseconds (2 seconds)
 }
 
 function hideAlert() {
   customAlert.classList.remove("show");
+  successMessage.innerText = "";
+  errorMessage.innerText = "";
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
 }
 
-closeBtn.addEventListener("click", hideAlert);
+// Alert icons
+const alertIcons = {
+  success: '<i class="fas fa-check-circle"></i>',
+  error: '<i class="fas fa-exclamation-circle"></i>',
+};
