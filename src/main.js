@@ -239,3 +239,9 @@ function updateRangeValue(value) {
   document.getElementById("rangeValue").textContent = value;
   filterProducts();
 }
+
+function toggleSwitch() {
+  var switchStatus = document.getElementById("toggleSwitch").checked;
+  console.log("Switch status: ", switchStatus);
+  // You can perform actions based on the switch status here
+}
