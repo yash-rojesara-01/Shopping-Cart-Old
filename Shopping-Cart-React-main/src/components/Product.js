@@ -14,6 +14,7 @@ const Product = ({ item }) => {
    const itemdata = {...item} 
 
    itemdata['uid'] = new Date().getTime().toString()
+   itemdata['price'] = Number(truncate(itemdata.price))
     dispatch(add(itemdata));
     enqueueSnackbar(`Item added to your cart successfully`, {
       variant: "success",
