@@ -44,14 +44,16 @@ body {
 .plus {
   font-size: 21px;
   color: green;
-  margin-top: -4px;
+  margin-top: 0px;
   margin-right: 3px;
+  margin-left: 2px;
 }
 .minus {
   font-size: 21px;
   color: red;
-  margin-top: -4px;
+  margin-top: -3px;
   margin-left: 3px;
+  margin-right: 3px;
 }
 .bold {
   font-weight: bold;
