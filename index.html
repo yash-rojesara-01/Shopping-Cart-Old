@@ -64,48 +64,41 @@
       <input type="checkbox" id="toggleButton" onchange="toggleContent()">
       <span class="slider"></span>
     </label>
-    <span id="toggleLabel">React</span>
+    <span id="toggleLabel">JS</span>
   </div>
-  <div class="navbar">
-    <a href="index.html">
-      <div class="ml-5 header">
-        <img
-          class="flame"
-          src="https://img.freepik.com/free-vector/flamingo-cartoon-style-isolated-white-background_1308-65667.jpg"
-          alt="Flamingo Cartoon"
-        />
-        <h1
-          class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl font-bold logo cursor-pointer tracking-wider"
-        >
-          Flamingo-CART
-        </h1>
-      </div>
-    </a>
-    <div class="search-header">
-      <input
-        id="search-box"
-        oninput="filterProducts()"
-        placeholder="Search"
-      />
-      <ol id="item-list"></ol>
-    </div>
-    <a href="cart.html">
-      <div class="cart">
-        <i class="bi bi-cart2"></i>
-        <div id="cartAmount" class="cartAmount">0</div>
-      </div>
-    </a>
-  </div>
-
-  <!-- React bundle content -->
-  <div id="reactContent" class="hide">
-    <div id="root"></div>
-    <!-- Include your bundle.js file -->
-    <script src="./Shopping-Cart-React-main/dist/bundle.js"></script>
-  </div>
-
+  
   <!-- HTML/JS content -->
   <div id="htmlContent">
+    <div class="navbar">
+      <a href="index.html">
+        <div class="ml-5 header">
+          <img
+            class="flame"
+            src="https://img.freepik.com/free-vector/flamingo-cartoon-style-isolated-white-background_1308-65667.jpg"
+            alt="Flamingo Cartoon"
+          />
+          <h1
+            class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl font-bold logo cursor-pointer tracking-wider"
+          >
+            Flamingo-CART
+          </h1>
+        </div>
+      </a>
+      <div class="search-header">
+        <input
+          id="search-box"
+          oninput="filterProducts()"
+          placeholder="Search"
+        />
+        <ol id="item-list"></ol>
+      </div>
+      <a href="cart.html">
+        <div class="cart">
+          <i class="bi bi-cart2"></i>
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
+      </a>
+    </div>
     <div class="slider-container">
       <div class="slider-item">
         <img
@@ -193,6 +186,13 @@
     </footer>
   </div>
 
+  <!-- React bundle content -->
+  <div id="reactContent" class="hide">
+    <div id="root"></div>
+    <!-- Include your bundle.js file -->
+    <script src="./Shopping-Cart-React-main/dist/bundle.js"></script>
+  </div>
+
   <!-- JavaScript files -->
   <script src="src/Data.js"></script>
   <script src="src/main.js"></script>
@@ -204,13 +204,13 @@
       var htmlContent = document.getElementById("htmlContent");
 
       if (toggleButton.checked) {
-        toggleLabel.textContent = "JS";
-        reactContent.classList.add("hide");
-        htmlContent.classList.remove("hide");
-      } else {
         toggleLabel.textContent = "React";
         reactContent.classList.remove("hide");
         htmlContent.classList.add("hide");
+      } else {
+        toggleLabel.textContent = "JS";
+        reactContent.classList.add("hide");
+        htmlContent.classList.remove("hide");
       }
     }
   </script>
