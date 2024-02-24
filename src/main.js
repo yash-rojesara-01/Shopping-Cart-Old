@@ -245,3 +245,22 @@ function toggleSwitch() {
   console.log("Switch status: ", switchStatus);
   // You can perform actions based on the switch status here
 }
+
+function togglePopup() {
+  var popup = document.getElementById("popup");
+  var overlay = document.getElementById("overlay");
+  popup.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+// Function to toggle header presentational
+function toggleHeaderPresentational() {
+  // You can implement logic here to handle the toggle action
+  console.log("Header Presentational toggled");
+}
+
+// Function to toggle header container
+function toggleHeaderContainer() {
+  // You can implement logic here to handle the toggle action
+  console.log("Header Container toggled");
+}

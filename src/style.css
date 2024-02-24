@@ -222,6 +222,8 @@ a {
 
 .filter-category {
   margin-top: 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 .filter-price {
@@ -461,4 +463,555 @@ footer {
 
 .tracking-wider {
   letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+}
+
+/* Your existing styles */
+    /* Styles for Open Popup button */
+    .open-popup-btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    /* Styles for background overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Popup styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 300px; /* Adjust the width as needed */
+      background-color: white;
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow-y: auto; /* Enable scrolling if content exceeds height */
+    }
+
+    .popup.active {
+      display: block;
+    }
+
+    /* Close icon styles */
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+
+    /* Styles for footer */
+footer {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  margin-bottom: 20px;
+}
+
+.grid-item h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.grid-item p {
+  color: #666;
+  font-size: 14px;
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+}
+
+.social-links .social-link {
+  display: inline-block;
+  margin-right: 10px;
+  color: #666;
+}
+
+/* Styles for popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.popup.active {
+  display: block;
+}
+
+/* Close icon styles */
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+
+[10:21 AM] AMOL AHER
+.item {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  height: 100%; /* Ensures all cards are equal height */
+
+}
+
+.item .details {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  height: calc(100% - 220px); /* Adjust height deducting the image height */
+
+}
+
+.item .details h3,
+
+.item .details p {
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+  margin: 0;
+
+}
+
+.item .details h3 {
+
+  font-size: 1.2em;
+
+  /* add additional styling as needed */
+
+}
+
+.item .details p {
+
+  font-size: 1em;
+
+  /* add additional styling as needed */
+
+}
+
+.item img {
+
+  width: 100%;
+
+  object-fit: cover;
+
+}
+
+/* Additional styles to make the price and buttons at the bottom */
+
+.item .price-quantity {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+.item .quantity {
+
+  padding: 4px 10px;
+
+  border: 1px solid #ddd;
+
+  text-align: center;
+
+}
+
+/* Optional adjustments */
+
+.item {
+
+  box-sizing: border-box;
+
+  padding: 10px; /* Space inside each card */
+
+  margin: 10px; /* Space between cards */
+
+  border: 1px solid #ddd;
+
+  border-radius: 4px;
+
+}
+
+/* Set flex-basis to define a base width for each card and allow wrapping */
+
+/* This assumes a maximum of 4 cards in a row, adjust as needed */
+
+.item {
+
+  flex: 0 0 22%; /* Adjust the percentage based on the number of items in a row */
+
+  max-width: 22%; /* Same as flex-basis */
+
+}
+
+@media (max-width: 768px) {
+
+  /* Responsive design for tablets */
+
+  .item {
+
+    flex: 0 0 45%;
+
+    max-width: 45%;
+
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  /* Responsive design for mobile */
+
+  .item {
+
+    flex: 0 0 100%;
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Ensures the shop container is properly formatted to handle child items */
+#shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Individual item styling to ensure equal heights */
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 220px; /* Set a fixed width or modify as required */
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 100%; 
+  min-width: 280px;
+  /* Ensures height stretches to match sibling items */
+}
+
+/* Image styling */
+.item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Title and description with ellipsis */
+.item .details h3,
+.item .details p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure details section fills space and pushes price to bottom */
+.item .details {
+  flex-grow: 1;
+}
+
+/* Price and quantity wrapper */
+.item .details .price-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px; /* Add space above this section */
+}
+
+/* Quantity buttons styling */
+.item .details .buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensures the shop container is properly formatted to handle child items */
+#shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px; /* add some space between cards */
+}
+
+/* Individual item styling to ensure equal heights with a fixed width */
+.item {
+  flex: 1 0 220px; /* flex-grow, flex-shrink, flex-basis */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  /* Default min-height, adjust as per your content */
+  height: 340px;
+}
+
+.item img {
+  width: 100%;
+  /* Set a fixed height, and use object-fit to maintain aspect ratio */
+  height: 150px; /* adjust as per your design */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Title and description with ellipsis */
+.item .details h3,
+.item .details p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure the title and description have a consistent look and don't push other elements out of view */
+.item .details h3 {
+  margin-bottom: 5px; /* Adjust spacing between title and description */
+}
+
+.item .details p {
+  margin-bottom: auto; /* Push the price to the bottom */
+}
+
+/* Price and quantity wrapper */
+.item .details .price-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Quantity buttons styling */
+.item .details .buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design: Adjust the number of items per row as per the viewport width */
+@media (max-width: 768px) {
+  .item {
+    flex: 1 0 calc(50% - 20px); /* 2 items per row with gap adjustment */
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    flex: 1 0 calc(100% - 20px); /* 1 item per row with gap adjustment */
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.search-header {
+  flex: 1;
+  text-align: center;
+}
+
+#search-box {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.feature-flag-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cart {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.cart .cartAmount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+}
+
+.search-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-box {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }
