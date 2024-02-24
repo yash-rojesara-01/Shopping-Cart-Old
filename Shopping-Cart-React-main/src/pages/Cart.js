@@ -8,7 +8,7 @@ import { useSnackbar } from "notistack";
 const Cart = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
+  const  cart  = useSelector((state) => state.cart);
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
