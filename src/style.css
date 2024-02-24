@@ -517,29 +517,6 @@ footer {
       cursor: pointer;
     }
 
-    /* Other styles */
-    .switch-container {
-      margin-bottom: 10px;
-    }
-
-    .switch-label {
-      display: inline-block;
-      margin-right: 10px;
-    }
-
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
     .slider {
       position: absolute;
       cursor: pointer;
@@ -645,29 +622,6 @@ footer {
   top: 10px;
   right: 10px;
   cursor: pointer;
-}
-
-/* Other styles */
-.switch-container {
-  margin-bottom: 10px;
-}
-
-.switch-label {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
 }
 
 .slider {
@@ -860,7 +814,9 @@ input:checked + .slider:before {
   padding: 10px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  height: 100%; /* Ensures height stretches to match sibling items */
+  height: 100%; 
+  min-width: 280px;
+  /* Ensures height stretches to match sibling items */
 }
 
 /* Image styling */
@@ -967,4 +923,95 @@ input:checked + .slider:before {
   .item {
     flex: 1 0 calc(100% - 20px); /* 1 item per row with gap adjustment */
   }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.search-header {
+  flex: 1;
+  text-align: center;
+}
+
+#search-box {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.feature-flag-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cart {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.cart .cartAmount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+}
+
+.search-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-box {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }
