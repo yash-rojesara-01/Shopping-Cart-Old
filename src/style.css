@@ -222,6 +222,8 @@ a {
 
 .filter-category {
   margin-top: 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 .filter-price {
