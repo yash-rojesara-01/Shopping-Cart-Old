@@ -31,24 +31,46 @@ const Filter = () => {
           <FormControlLabel
             control={
               <Checkbox
-                checked={selectedCategories.includes("Casual")}
+                checked={selectedCategories.includes("men")}
                 onChange={(e) =>
-                  handleCheckboxChange("Casual", e.target.checked)
+                  handleCheckboxChange("men", e.target.checked)
                 }
               />
             }
-            label="Casual"
+            label="Men's Clothing"
           />
           <FormControlLabel
             control={
               <Checkbox
-                checked={selectedCategories.includes("Office")}
+                checked={selectedCategories.includes("women")}
                 onChange={(e) =>
-                  handleCheckboxChange("Office", e.target.checked)
+                  handleCheckboxChange("women", e.target.checked)
                 }
               />
             }
-            label="Office"
+            label="Women's Clothing"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={selectedCategories.includes("electronics")}
+                onChange={(e) =>
+                  handleCheckboxChange("electronics", e.target.checked)
+                }
+              />
+            }
+            label="Electronics"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={selectedCategories.includes("jewelery")}
+                onChange={(e) =>
+                  handleCheckboxChange("jewelery", e.target.checked)
+                }
+              />
+            }
+            label="Jewelery"
           />
         </FormGroup>
       </div>
