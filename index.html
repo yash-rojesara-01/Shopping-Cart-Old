@@ -92,6 +92,7 @@
         />
         <ol id="item-list"></ol>
       </div>
+      <button class="open-popup-btn" onclick="togglePopup()">feature flag</button>
       <a href="cart.html">
         <div class="cart">
           <i class="bi bi-cart2"></i>
@@ -128,6 +129,8 @@
         </div>
       </div>
     </div>
+    <div id="overlay" class="overlay"></div>
+
 
     <div class="main-container">
       <div class="sidebar">
@@ -146,7 +149,27 @@
           </div>
         </div>
       </div>
+
       <div class="shop" id="shop"></div>
+    </div>
+
+    <div id="popup" class="popup">
+      <!-- Close icon -->
+      <span class="close-icon" onclick="togglePopup()">&times;</span>
+      <div class="switch-container">
+        <label class="switch-label">Header Presentational</label>
+        <label class="switch">
+          <input type="checkbox" id="headerPresentational" onchange="toggleHeaderPresentational()">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="switch-container">
+        <label class="switch-label">Header Container</label>
+        <label class="switch">
+          <input type="checkbox" id="headerContainer" onchange="toggleHeaderContainer()">
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
 
     <div id="custom-alert" class="alert">
